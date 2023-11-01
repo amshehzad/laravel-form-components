@@ -15,6 +15,7 @@ class FormCheckbox extends Component
     public string $label;
     public $value;
     public bool $checked = false;
+    public string $wrapperClass;
 
     /**
      * Create a new component instance.
@@ -27,12 +28,14 @@ class FormCheckbox extends Component
         $value = 1,
         $bind = null,
         bool $default = false,
-        bool $showErrors = true
+        bool $showErrors = true,
+        string $wrapperClass = '',
     ) {
-        $this->name       = $name;
+        $this->name       = self::convertDotToArray($name);
         $this->label      = $label;
         $this->value      = $value;
         $this->showErrors = $showErrors;
+        $this->wrapperClass   = $wrapperClass;
 
         $inputName = static::convertBracketsToDots(Str::before($name, '[]'));
 

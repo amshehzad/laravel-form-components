@@ -1,10 +1,10 @@
-<div class="form-check">
+<div class="form-check {{ $wrapperClass }}">
     <input {!! $attributes->merge(['class' => 'form-check-input ' . ($hasError($name) ? 'is-invalid' : '')]) !!}
         type="checkbox"
         value="{{ $value }}"
 
         @if($isWired())
-            wire:model{!! $wireModifier() !!}="{{ $name }}"
+            wire:model{!! $wireModifier() !!}="{{ $dottedNotationName() }}"
         @endif
 
         name="{{ $name }}"

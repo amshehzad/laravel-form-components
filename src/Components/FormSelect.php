@@ -18,6 +18,7 @@ class FormSelect extends Component
     public bool $multiple;
     public bool $floating;
     public string $placeholder;
+    public string $wrapperClass;
 
     /**
      * Create a new component instance.
@@ -34,13 +35,15 @@ class FormSelect extends Component
         bool $showErrors = true,
         bool $manyRelation = false,
         bool $floating = false,
-        string $placeholder = ''
+        string $placeholder = '',
+        string $wrapperClass = '',
     ) {
-        $this->name         = $name;
+        $this->name         = self::convertDotToArray($name);
         $this->label        = $label;
         $this->options      = $options;
         $this->manyRelation = $manyRelation;
         $this->placeholder  = $placeholder;
+        $this->wrapperClass   = $wrapperClass;
 
         if ($this->isNotWired()) {
             $inputName = static::convertBracketsToDots(Str::before($name, '[]'));

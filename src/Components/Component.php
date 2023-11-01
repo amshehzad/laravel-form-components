@@ -103,4 +103,26 @@ abstract class Component extends BaseComponent
     {
         return str_replace(['[', ']'], ['.', ''], $name);
     }
+
+    /**
+     * Converts a dotted-notation to a bracket-notation
+     *
+     * @param string $name
+     * @return string
+     */
+    protected static function convertDotToArray($name): string
+    {
+        $array = explode('.', $name);
+        return isset($array[1]) ? "{$array[0]}[{$array[1]}]" : $name;
+    }
+
+    public function bracketNotationName()
+    {
+
+    }
+
+    public function dottedNotationName(): string
+    {
+        return self::convertBracketsToDots($this->name);
+    }
 }

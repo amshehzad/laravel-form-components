@@ -11,6 +11,7 @@ class FormInput extends Component
     public string $label;
     public string $type;
     public bool $floating;
+    public string $wrapperClass;
 
     public $value;
 
@@ -27,13 +28,15 @@ class FormInput extends Component
         $default = null,
         $language = null,
         bool $showErrors = true,
-        bool $floating = false
+        bool $floating = false,
+        string $wrapperClass = '',
     ) {
-        $this->name       = $name;
+        $this->name       = self::convertDotToArray($name);
         $this->label      = $label;
         $this->type       = $type;
         $this->showErrors = $showErrors;
         $this->floating   = $floating && $type !== 'hidden';
+        $this->wrapperClass   = $wrapperClass;
 
         if ($language) {
             $this->name = "{$name}[{$language}]";

@@ -1,9 +1,9 @@
-<div class="form-group">
+<div class="form-group {{ $wrapperClass }}">
     <x-form-label :label="$label" :for="$attributes->get('id') ?: $id()" />
 
     <select
         @if($isWired())
-            wire:model{!! $wireModifier() !!}="{{ $name }}"
+            wire:model{!! $wireModifier() !!}="{{ $dottedNotationName() }}"
         @endif
 
         name="{{ $name }}"

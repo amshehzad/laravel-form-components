@@ -1,4 +1,4 @@
-<div class="@if($type === 'hidden') d-none @else form-group @endif">
+<div class="@if($type === 'hidden') d-none @else form-group @endif {{ $wrapperClass }}">
     <x-form-label :label="$label" :for="$attributes->get('id') ?: $id()" />
 
     <div class="input-group">
@@ -14,7 +14,7 @@
             type="{{ $type }}"
 
             @if($isWired())
-                wire:model{!! $wireModifier() !!}="{{ $name }}"
+                wire:model{!! $wireModifier() !!}="{{ $dottedNotationName() }}"
             @else
                 value="{{ $value }}"
             @endif
