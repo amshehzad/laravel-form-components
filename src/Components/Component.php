@@ -112,8 +112,14 @@ abstract class Component extends BaseComponent
      */
     protected static function convertDotToArray($name): string
     {
-        $array = explode('.', $name);
-        return isset($array[1]) ? "{$array[0]}[{$array[1]}]" : $name;
+        $components = explode('.', $name);
+        if (count($components) < 2) {
+            return $name;
+        }
+
+        $firstElement = array_shift($components); // Remove and store the first element
+
+        return $firstElement.'['.implode('][', $components).']';
     }
 
     public function bracketNotationName()
