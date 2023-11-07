@@ -1,5 +1,5 @@
-<div class="form-check {{ $wrapperClass }}">
-    <input {!! $attributes->merge(['class' => 'form-check-input ' . ($hasError($name) ? 'is-invalid' : '')]) !!}
+<div class="{{ $customControl ? 'custom-control custom-checkbox' : 'form-check' }} {{ $wrapperClass }}">
+    <input {!! $attributes->merge(['class' => ($customControl ? 'custom-control-input' : 'form-check-input ') . ($hasError($name) ? 'is-invalid' : '')]) !!}
         type="checkbox"
         value="{{ $value }}"
 
@@ -18,7 +18,10 @@
         @endif
     />
 
-    <x-form-label :label="$label" :for="$attributes->get('id') ?: $id()" class="form-check-label" />
+    <x-form-label
+        :label="$label" :for="$attributes->get('id') ?: $id()"
+        class="{{ $customControl ? 'custom-control-label' : 'form-check-label' }}"
+    />
 
     {!! $help ?? null !!}
 
