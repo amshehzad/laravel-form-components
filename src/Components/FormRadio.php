@@ -11,6 +11,7 @@ class FormRadio extends Component
     public string $label;
     public $value;
     public bool $checked = false;
+    public bool $customControl;
 
     public function __construct(
         string $name,
@@ -18,12 +19,14 @@ class FormRadio extends Component
         $value = 1,
         $bind = null,
         bool $default = false,
-        bool $showErrors = false
+        bool $showErrors = false,
+        bool $customControl = true,
     ) {
         $this->name       = $name;
         $this->label      = $label;
         $this->value      = $value;
         $this->showErrors = $showErrors;
+        $this->customControl   = $customControl;
 
         $inputName = static::convertBracketsToDots($name);
 
