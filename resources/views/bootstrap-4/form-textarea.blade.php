@@ -1,9 +1,9 @@
-<div class="form-group">
+<div class="@if($type === 'hidden') d-none @else form-group @endif {{ $wrapperClass }}">
     <x-form-label :label="$label" :for="$attributes->get('id') ?: $id()" />
 
     <textarea
         @if($isWired())
-            wire:model{!! $wireModifier() !!}="{{ $name }}"
+            wire:model{!! $wireModifier() !!}="{{ $dottedNotationName }}"
         @endif
 
         name="{{ $name }}"
