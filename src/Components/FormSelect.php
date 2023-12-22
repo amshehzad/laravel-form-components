@@ -18,6 +18,7 @@ class FormSelect extends Component
     public bool $multiple;
     public bool $floating;
     public string $placeholder;
+    public bool $placeholderDisabled;
     public string $wrapperClass;
 
     /**
@@ -37,12 +38,14 @@ class FormSelect extends Component
         bool $floating = false,
         string $placeholder = '',
         string $wrapperClass = '',
+        bool $placeholderDisabled = false,
     ) {
         $this->name         = self::convertDotToArray($name);
         $this->label        = $label;
         $this->options      = $options;
         $this->manyRelation = $manyRelation;
         $this->placeholder  = $placeholder;
+        $this->placeholderDisabled  = $placeholderDisabled;
         $this->wrapperClass   = $wrapperClass;
 
         if ($this->isNotWired()) {

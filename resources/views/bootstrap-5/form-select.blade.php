@@ -27,13 +27,13 @@
     >
 
         @if($placeholder)
-            <option value="" disabled @if($nothingSelected()) selected="selected" @endif>
+            <option value="" @disabled($placeholderDisabled) @selected($nothingSelected())>
                 {{ $placeholder }}
             </option>
         @endif
 
         @forelse($options as $key => $option)
-            <option value="{{ $key }}" @if($isSelected($key)) selected="selected" @endif>
+            <option value="{{ $key }}" @selected($isSelected($key))>
                 {{ $option }}
             </option>
         @empty
