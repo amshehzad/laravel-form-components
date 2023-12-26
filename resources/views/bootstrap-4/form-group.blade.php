@@ -1,7 +1,7 @@
 <div {!! $attributes->merge(['class' => 'form-group '  . ($hasError($name) ? 'is-invalid' : '')]) !!}>
     <x-form-label :label="$label" />
 
-    <div class="@if($inline) d-flex flex-row flex-wrap inline-space @endif">
+    <div class="@if($inline) d-flex flex-row flex-wrap inline-space gap-4 @endif">
         {!! $slot !!}
     </div>
 
