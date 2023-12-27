@@ -2,6 +2,18 @@
     <x-form-label :label="$label" :for="$attributes->get('id') ?: $id()" />
 
     <textarea
+        @if($autoresize)
+            x-data="{
+                    resize: () => {
+                        $el.style.height = '100px';
+                        $el.style.height = ($el.scrollHeight > 0 ? ($el.scrollHeight + 5) : 100) + 'px'
+                    }
+                }"
+            x-init="resize()"
+            @input="resize()"
+            @focusin="resize()"
+        @endif
+
         @if($isWired())
             wire:model{!! $wireModifier() !!}="{{ $dottedNotationName }}"
         @endif
