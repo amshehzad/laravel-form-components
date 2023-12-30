@@ -1,4 +1,4 @@
-<div class="{{ $customControl ? 'custom-control custom-radio' : 'form-check' }}">
+<div class="{{ $customControl ? 'custom-control custom-radio' : 'form-check' }}  {{ $wrapperClass }}">
     <input {!! $attributes->merge(['class' => ($customControl ? 'custom-control-input' : 'form-check-input ') . ($hasError($name) ? 'is-invalid' : '')]) !!}
         type="radio"
 

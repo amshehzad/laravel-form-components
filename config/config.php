@@ -13,6 +13,8 @@ return [
     /** bool | string */
     'default_wire' => false,
 
+    'bootstrap_custom_controls' => false,
+
     'components' => [
         'form' => [
             'view'  => 'form-components::{framework}.form',

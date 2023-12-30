@@ -15,7 +15,7 @@ class FormCheckbox extends Component
     public string $label;
     public $value;
     public bool $checked = false;
-    public bool $customControl;
+    public ?bool $customControl;
     public string $wrapperClass;
 
     /**
@@ -30,14 +30,14 @@ class FormCheckbox extends Component
         $bind = null,
         bool $default = false,
         bool $showErrors = true,
-        bool $customControl = true,
+        bool $customControl = null,
         string $wrapperClass = '',
     ) {
         $this->name       = self::convertDotToArray($name);
         $this->label      = $label;
         $this->value      = $value;
         $this->showErrors = $showErrors;
-        $this->customControl   = $customControl;
+        $this->customControl   = is_null($customControl) ? config('form-components.bootstrap_custom_controls') : $customControl;
         $this->wrapperClass   = $wrapperClass;
 
         $inputName = static::convertBracketsToDots(Str::before($name, '[]'));
