@@ -13,6 +13,6 @@ class FormLabel extends Component
      */
     public function __construct(string $label = '')
     {
-        $this->label = $label;
+        $this->label = __($label);
     }
 }
