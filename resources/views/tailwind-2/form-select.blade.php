@@ -4,7 +4,7 @@
 
         <select
             @if($isWired())
-                wire:model{!! $wireModifier() !!}="{{ $name }}"
+                wire:model{!! $wireModifier() !!}="{{ $dottedNotationName() }}"
             @endif
 
             name="{{ $name }}"

@@ -6,7 +6,7 @@
     type="range"
 
     @if($isWired())
-        wire:model{!! $wireModifier() !!}="{{ $name }}"
+        wire:model{!! $wireModifier() !!}="{{ $dottedNotationName() }}"
     @else
         value="{{ $value }}"
     @endif

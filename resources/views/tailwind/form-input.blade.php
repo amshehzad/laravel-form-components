@@ -6,7 +6,7 @@
             'class' => 'form-input block w-full ' . ($label ? 'mt-1' : '')
         ]) !!}
             @if($isWired())
-                wire:model{!! $wireModifier() !!}="{{ $name }}"
+                wire:model{!! $wireModifier() !!}="{{ $dottedNotationName() }}"
             @else
                 value="{{ $value }}"
             @endif

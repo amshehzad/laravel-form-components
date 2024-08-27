@@ -11,7 +11,7 @@
         type="{{ $type }}"
 
         @if($isWired())
-            wire:model{!! $wireModifier() !!}="{{ $name }}"
+            wire:model{!! $wireModifier() !!}="{{ $dottedNotationName() }}"
         @else
             value="{{ $value ?? ($type === 'color' ? '#000000' : '') }}"
         @endif
